@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 
-const shell = require('shelljs');
-const program = require('commander');
-const inquirer = require('inquirer');
-const download = require('download-git-repo');
-const ora = require('ora');
-const chalk = require('chalk');
+// what's the difference between shelljs and commander??
+const shell = require('shelljs'); // run script
+const { program } = require('commander'); // cli
+const inquirer = require('inquirer'); // interact with user, like input in python
+const download = require('download-git-repo'); // download template repo
+const ora = require('ora'); // spinner
+const chalk = require('chalk'); // color?
 
 const fs = require('fs');
 const path = require('path');
@@ -16,6 +17,7 @@ const spinner = ora();
 console.log('argv: ', process.argv);
 program.parse(process.argv);
 
+console.log('args: ', program.args);
 let dir = process.argv[1];
 
 const questions = [{
@@ -60,17 +62,17 @@ function downloadTemplate(params) {
 // let's stop here today
 function updateTemplateFile(params, dir){
   let { name, description } = params;
-  fs.readFile(`${path.resolve(dir)}/public/package.json`, (err, buffer)=>{
+  fs.readFile(`${dir}/public/package.json`, (err, buffer)=>{
       if(err) {
           console.log(chalk.red(err));
           return false;
       }
-      shell.rm('-f', `${path.resolve(dir)}/.git`);
-      shell.rm('-f', `${path.resolve(dir)}/public/CHANGELOG.md`);
+      shell.rm('-f', `${dir}/.git`);
+      shell.rm('-f', `${dir}/public/CHANGELOG.md`);
       let packageJson = JSON.parse(buffer);
       Object.assign(packageJson, params);
-      fs.writeFileSync(`${path.resolve(dir)}/public/package.json`, JSON.stringify(packageJson, null, 2));
-      fs.writeFileSync(`${path.resolve(dir)}/README.md`, `# ${name}\n> ${description}`);
+      fs.writeFileSync(`${dir}/public/package.json`, JSON.stringify(packageJson, null, 2));
+      fs.writeFileSync(`${dir}/README.md`, `# ${name}\n> ${description}`);
       spinner.succeed('创建完毕');
   });
 }
