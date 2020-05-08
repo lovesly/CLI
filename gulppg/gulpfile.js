@@ -1,6 +1,12 @@
 const { series } = require('gulp');
 // cmd, 怎么同时引入 default, 和其他具名函数来着？？
-const { babel, main, rename } = require('./examples/handleFiles.js');
+const {
+  babel,
+  main,
+  rename,
+} = require("./examples/handleFiles.js");
+
+const { inlinePlugin } = require('./examples/inline-plugin');
 
 function minify(cb) {
   cb();
@@ -20,6 +26,7 @@ exports.bundle = bundle;
 exports.main = main;
 exports.babel = babel;
 exports.rename = rename;
+exports.inlinePlugin = inlinePlugin;
 
 // 可以条件判断，wow
 if (process.env.NODE_ENV === 'production') {

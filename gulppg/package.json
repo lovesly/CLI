@@ -11,10 +11,13 @@
   "devDependencies": {
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "through2": "^3.0.1",
+    "uglify-js": "^3.9.2"
   },
   "dependencies": {
     "gulp-babel": "^8.0.0",
+    "gulp-if": "^3.0.0",
     "gulp-rename": "^2.0.0",
     "gulp-uglify": "^3.0.2"
   }
