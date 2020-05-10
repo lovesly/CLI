@@ -7,6 +7,7 @@ const {
 } = require("./examples/handleFiles.js");
 
 const { inlinePlugin } = require('./examples/inline-plugin');
+const { watchJS } = require('./examples/watch');
 
 function minify(cb) {
   cb();
@@ -27,6 +28,7 @@ exports.main = main;
 exports.babel = babel;
 exports.rename = rename;
 exports.inlinePlugin = inlinePlugin;
+exports.watchJS = watchJS;
 
 // 可以条件判断，wow
 if (process.env.NODE_ENV === 'production') {

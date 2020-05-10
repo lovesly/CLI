@@ -27,6 +27,7 @@ function childProcessTask() {
 
 // callback
 function callbackTask(cb) {
+    console.log('do something')
     cb();
 }
 

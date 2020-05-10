@@ -19,6 +19,8 @@ exports.rename = function () {
         .pipe(babel({
                 presets: ["@babel/preset-env"],
             }))
+        .pipe(src('vendor/*.js'))
+        .pipe(dest('output/'))
         // gulp-uglify 插件并不改变文件名
         .pipe(uglify())
         // 因此使用 gulp-rename 插件修改文件的扩展名
