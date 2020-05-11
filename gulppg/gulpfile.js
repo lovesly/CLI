@@ -8,6 +8,7 @@ const {
 
 const { inlinePlugin } = require('./examples/inline-plugin');
 const { watchJS } = require('./examples/watch');
+const { copy, copyExternal } = require('./methods/src');
 
 function minify(cb) {
   cb();
@@ -29,7 +30,8 @@ exports.babel = babel;
 exports.rename = rename;
 exports.inlinePlugin = inlinePlugin;
 exports.watchJS = watchJS;
-
+exports.copy = copy;
+exports.copyExternal = copyExternal;
 // 可以条件判断，wow
 if (process.env.NODE_ENV === 'production') {
   exports.build = series(minify, bundle);

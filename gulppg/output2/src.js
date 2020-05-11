@@ -1,0 +1,2 @@
+"use strict";var _require=require("gulp"),src=_require.src,dest=_require.dest,babel=require("gulp-babel"),uglify=require("gulp-uglify");function copy(){return src("methods/*.js",{sourcemaps:!0}).pipe(babel({presets:["@babel/preset-env"]})).pipe(uglify()).pipe(dest("output2/",{sourcemaps:!0}))}function copyExternal(){return src("methods/*.js",{sourcemaps:!0}).pipe(babel({presets:["@babel/preset-env"]})).pipe(uglify()).pipe(dest("output2/",{sourcemaps:"."}))}exports.copy=copy,exports.copyExternal=copyExternal;
+//# sourceMappingURL=src.js.map

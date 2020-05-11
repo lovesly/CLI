@@ -1,0 +1,1 @@
+"use strict";var _require=require("gulp"),watch=_require.watch,series=_require.series;function clean(e){console.log("clean"),e()}function javascript(e){console.log("javascript"),e()}function css(e){e()}watch("/examples/*.css",css),exports.watchJS=function(){watch("examples/*.js",series(clean,javascript))};
