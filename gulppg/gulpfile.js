@@ -10,6 +10,7 @@ const { inlinePlugin } = require('./examples/inline-plugin');
 const { watchJS } = require('./examples/watch');
 const { copy, copyExternal } = require('./methods/src');
 const { link } = require('./methods/symlink');
+const { buildT2 } = require('./methods/task');
 
 function minify(cb) {
   cb();

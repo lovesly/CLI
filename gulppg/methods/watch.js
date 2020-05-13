@@ -15,3 +15,4 @@ watcher.on('unlink', function(path, stats) {
 });
 
 watcher.close();
+// gulp 文档真是一坨屎，根本不知道在说什么。
